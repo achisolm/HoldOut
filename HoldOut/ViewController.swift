@@ -177,19 +177,20 @@ class ViewController: UIViewController {
         let currentTime = Date.timeIntervalSinceReferenceDate
         var elapsedTime = currentTime - startTime
         
-        // Calculate time in Minutes:Seconds:Milliseconds
+        // Calculate time in Hours:Minutes:Seconds
+        let hours = Int(elapsedTime / 3600.0)
+        elapsedTime -= TimeInterval(hours) * 3600
         let minutes = Int(elapsedTime / 60.0)
         elapsedTime -= TimeInterval(minutes) * 60
         let seconds = Int(elapsedTime)
         elapsedTime -= TimeInterval(seconds)
-        let millisec = Int(elapsedTime * 100)
         
         // Formatting
+        let strHours = String(format:"%02d", hours)
         let strMinutes = String(format: "%02d", minutes)
         let strSeconds = String(format: "%02d", seconds)
-        let strMillisec = String(format: "%02d", millisec)
         
-        timerLabel.text = "\(strMinutes):\(strSeconds):\(strMillisec)"
+        timerLabel.text = "\(strHours):\(strMinutes):\(strSeconds)"
     }
     
     @objc func player1Touched() {
