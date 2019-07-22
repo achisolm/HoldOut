@@ -52,7 +52,6 @@ class ViewController: UIViewController {
     }
     
     func setHighScore(newHighScore: String) {
-        //let highScore = prevBest.text
         saveData.set(newHighScore, forKey: "highScore")
     }
     
@@ -60,13 +59,13 @@ class ViewController: UIViewController {
     func startGame() {
         gameStarted = true
         startTime = Date.timeIntervalSinceReferenceDate
-        //updateTime()
         
-        //let aselector: Selector = Selector(("updateTime"))
+        // Start the timer
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         startTime = Date.timeIntervalSinceReferenceDate
+        
+        // Play music and vibrate to let players know the game has started
         music?.play()
-
         vibrate()
     }
     
@@ -215,19 +214,17 @@ class ViewController: UIViewController {
         
         // Previous best label
         prevBest.frame = CGRect(x: screen.midX + 50, y: screen.midY, width: 100, height: 25)
-        //prevBest.text = "00:00:00"
         prevBest.text = getHighScore()
         prevBest.textColor = .white
         prevBest.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         view.addSubview(prevBest)
         
-        // Play Music
+        // Setup Music for playback
         let path = Bundle.main.path(forResource: "SuperHex.mp3", ofType:nil)!
         let musicURL = URL(fileURLWithPath: path)
         
         do {
             music = try AVAudioPlayer(contentsOf: musicURL)
-            //music?.play()
         } catch {
             print("Error occured playing sound")
         }
