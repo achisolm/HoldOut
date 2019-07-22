@@ -76,11 +76,8 @@ class ViewController: UIViewController {
         let highScore = getHighScore()
         
         if (currentScore > highScore) {
-            print("New high score: \(currentScore)")
             setHighScore(newHighScore: currentScore)
             prevBest.text = currentScore
-        } else {
-            print("Did not beat high score: \(highScore).")
         }
         
         // Reset music
@@ -123,7 +120,6 @@ class ViewController: UIViewController {
     }
     
     @objc func player1Touched() {
-        //print("player 1 touched")
         player1Touch = true
         
         button.backgroundColor = .gray
@@ -134,7 +130,6 @@ class ViewController: UIViewController {
     }
     
     @objc func player1Released() {
-        //print("player 1 released")
         player1Touch = false
         
         button.backgroundColor = .white
@@ -145,7 +140,6 @@ class ViewController: UIViewController {
     }
     
     @objc func player2Touched() {
-        //print("player 2 touched")
         player2Touch = true
         
         p2Button.backgroundColor = .gray
@@ -156,7 +150,6 @@ class ViewController: UIViewController {
     }
     
     @objc func player2Released() {
-        //print("player 2 released")
         player2Touch = false
         
         p2Button.backgroundColor = .white
@@ -180,7 +173,6 @@ class ViewController: UIViewController {
         let height: CGFloat = 100
         let xPos = screen.midX - (width / CGFloat(2))
         var yPos = screen.maxY - (height + verticalOffset)
-        print("x: \(xPos), y: \(yPos)")
         button.frame = CGRect(x: xPos, y: yPos, width: width, height: height)
         
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
@@ -237,7 +229,6 @@ class ViewController: UIViewController {
             music = try AVAudioPlayer(contentsOf: musicURL)
             //music?.play()
         } catch {
-            //print(NSError.localizedDescription)
             print("Error occured playing sound")
         }
     }
