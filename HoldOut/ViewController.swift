@@ -118,13 +118,12 @@ class ViewController: UIViewController {
     
     func getHighScore() -> String {
         let highScore = saveData.string(forKey: "highScore")
-        if (highScore == nil) {
-            print("no high score")
-        } else {
-            print(highScore!)
-        }
         
         return highScore ?? "00:00:00"
+    }
+    
+    func deleteHighScore() {
+        saveData.removeObject(forKey: "highScore")
     }
     
     func setHighScore(newHighScore: String) {
