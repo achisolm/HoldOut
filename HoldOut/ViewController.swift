@@ -127,9 +127,9 @@ class ViewController: UIViewController {
         return highScore ?? "00:00:00"
     }
     
-    func setHighScore() {
-        let highScore = prevBest.text
-        saveData.set(highScore, forKey: "highScore")
+    func setHighScore(newHighScore: String) {
+        //let highScore = prevBest.text
+        saveData.set(newHighScore, forKey: "highScore")
     }
     
     
@@ -147,6 +147,18 @@ class ViewController: UIViewController {
     }
     
     func loseGame() {
+        // Compare score to high score
+        let currentScore = timerLabel.text!
+        let highScore = getHighScore()
+        
+        if (currentScore > highScore) {
+            print("New high score: \(currentScore)")
+            setHighScore(newHighScore: currentScore)
+            prevBest.text = currentScore
+        } else {
+            print("Did not beat high score: \(highScore).")
+        }
+        
         // Reset music
         music?.stop()
         music?.currentTime = 0
@@ -164,13 +176,6 @@ class ViewController: UIViewController {
         //Reset timer
         timer.invalidate()
         timerLabel.text = "00:00:00"
-        
-        // Set high score
-        prevBest.text = timerLabel.text
-        // if current is better than high score
-        
-        // Save high score
-        
     }
     
     @objc func updateTime() {
