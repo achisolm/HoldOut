@@ -16,6 +16,7 @@
 		850AA3CD224FFF6E005AF7C3 /* HoldOutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850AA3CC224FFF6E005AF7C3 /* HoldOutUITests.swift */; };
 		850AA3DB225034B9005AF7C3 /* LoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850AA3DA225034B9005AF7C3 /* LoseViewController.swift */; };
 		850AA3DD22503E0C005AF7C3 /* SuperHex.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 850AA3DC22503E0C005AF7C3 /* SuperHex.mp3 */; };
+		8546930022F08D4F001E6A70 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854692FF22F08D4F001E6A70 /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		850AA3CE224FFF6E005AF7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		850AA3DA225034B9005AF7C3 /* LoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseViewController.swift; sourceTree = "<group>"; };
 		850AA3DC22503E0C005AF7C3 /* SuperHex.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SuperHex.mp3; sourceTree = "<group>"; };
+		854692FF22F08D4F001E6A70 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				850AA3AC224FFF6C005AF7C3 /* AppDelegate.swift */,
 				850AA3AE224FFF6C005AF7C3 /* ViewController.swift */,
 				850AA3B0224FFF6C005AF7C3 /* Main.storyboard */,
+				854692FF22F08D4F001E6A70 /* Storyboard.storyboard */,
 				850AA3B3224FFF6E005AF7C3 /* Assets.xcassets */,
 				850AA3B5224FFF6E005AF7C3 /* LaunchScreen.storyboard */,
 				850AA3B8224FFF6E005AF7C3 /* Info.plist */,
@@ -239,6 +242,7 @@
 				850AA3B4224FFF6E005AF7C3 /* Assets.xcassets in Resources */,
 				850AA3DD22503E0C005AF7C3 /* SuperHex.mp3 in Resources */,
 				850AA3B2224FFF6C005AF7C3 /* Main.storyboard in Resources */,
+				8546930022F08D4F001E6A70 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
