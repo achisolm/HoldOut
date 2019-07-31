@@ -28,6 +28,11 @@ class LoseViewController: UIViewController {
     */
 
     @IBAction func playAgain(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
+    
+    @IBAction func mainMenuButtonPressed(_ sender: UIButton) {
+        self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+    }
+    
 }
