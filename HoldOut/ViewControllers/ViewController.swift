@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         let height: CGFloat = 100
         let xPos = screen.midX - (width / CGFloat(2))
         var yPos = screen.maxY - (height + verticalOffset)
-        print("x: \(xPos), y: \(yPos)")
+        //print("x: \(xPos), y: \(yPos)")
         button.frame = CGRect(x: xPos, y: yPos, width: width, height: height)
         
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
