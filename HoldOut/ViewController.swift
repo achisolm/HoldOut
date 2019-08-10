@@ -38,82 +38,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //startTime = Date.timeIntervalSinceReferenceDate
-        //Timer(timeInterval: 0.4, repeats: true) { _ in print("Done!") }
-        //view.backgroundColor = .black
-        timerLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-        
-        // Making Player1 button with code
-        let screen = UIScreen.main.bounds
-        let verticalOffset: CGFloat = 50
-        let width: CGFloat = 100
-        let height: CGFloat = 100
-        let xPos = screen.midX - (width / CGFloat(2))
-        var yPos = screen.maxY - (height + verticalOffset)
-        print("x: \(xPos), y: \(yPos)")
-        button.frame = CGRect(x: xPos, y: yPos, width: width, height: height)
-        
-        button.layer.cornerRadius = 0.5 * button.bounds.size.width
-        button.clipsToBounds = true
-        button.backgroundColor = .white
-        button.addTarget(self, action: #selector(player1Touched), for: .touchDown)
-        button.addTarget(self, action: #selector(player1Released), for: .touchUpInside)
-        button.addTarget(self, action: #selector(player1Released), for: .touchDragExit)
-        view.addSubview(button)
-        
-        // Label for Player1 button
-        let labelHeight: CGFloat = 56
-        yPos -= labelHeight
-        let p1Label = UILabel(frame: CGRect(x: xPos, y: yPos, width: width, height: labelHeight))
-        p1Label.text = "Player 1"
-        p1Label.textColor = .white
-        p1Label.textAlignment = .center
-        view.addSubview(p1Label)
-        
-        // Making Player2 button with code
-        yPos = screen.minY + (verticalOffset)
-        p2Button.frame = CGRect(x: xPos, y: yPos, width: width, height: height)
-        
-        p2Button.layer.cornerRadius = 0.5 * button.bounds.size.width
-        p2Button.clipsToBounds = true
-        p2Button.backgroundColor = .white
-        p2Button.addTarget(self, action: #selector(player2Touched), for: .touchDown)
-        p2Button.addTarget(self, action: #selector(player2Released), for: .touchUpInside)
-        p2Button.addTarget(self, action: #selector(player2Released), for: .touchDragExit)
-        view.addSubview(p2Button)
-        
-        // Label for Player2 button
-        yPos = p2Button.bounds.maxY + labelHeight
-        let p2Label = UILabel(frame: CGRect(x: xPos, y: yPos, width: width, height: labelHeight))
-        p2Label.text = "Player 2"
-        p2Label.textColor = .white
-        p2Label.textAlignment = .center
-        p2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-        view.addSubview(p2Label)
-        
-        // Previous best label
-        prevBest.frame = CGRect(x: screen.midX + 50, y: screen.midY, width: 100, height: 25)
-        //prevBest.text = "00:00:00"
-        prevBest.text = getHighScore()
-        prevBest.textColor = .white
-        prevBest.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-        view.addSubview(prevBest)
-        
-        // Play Music
-        let path = Bundle.main.path(forResource: "SuperHex.mp3", ofType:nil)!
-        let musicURL = URL(fileURLWithPath: path)
-        
-        do {
-            music = try AVAudioPlayer(contentsOf: musicURL)
-            //music?.play()
-        } catch {
-            //print(NSError.localizedDescription)
-            print("Error occured playing sound")
-        }
-        
-        
-        
-        //music.play()
+        setupUI()
     }
     
     func getHighScore() -> String {
@@ -127,7 +52,6 @@ class ViewController: UIViewController {
     }
     
     func setHighScore(newHighScore: String) {
-        //let highScore = prevBest.text
         saveData.set(newHighScore, forKey: "highScore")
     }
     
@@ -135,13 +59,13 @@ class ViewController: UIViewController {
     func startGame() {
         gameStarted = true
         startTime = Date.timeIntervalSinceReferenceDate
-        //updateTime()
         
-        //let aselector: Selector = Selector(("updateTime"))
+        // Start the timer
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         startTime = Date.timeIntervalSinceReferenceDate
+        
+        // Play music and vibrate to let players know the game has started
         music?.play()
-
         vibrate()
     }
     
@@ -151,11 +75,8 @@ class ViewController: UIViewController {
         let highScore = getHighScore()
         
         if (currentScore > highScore) {
-            print("New high score: \(currentScore)")
             setHighScore(newHighScore: currentScore)
             prevBest.text = currentScore
-        } else {
-            print("Did not beat high score: \(highScore).")
         }
         
         // Reset music
@@ -198,7 +119,6 @@ class ViewController: UIViewController {
     }
     
     @objc func player1Touched() {
-        //print("player 1 touched")
         player1Touch = true
         
         button.backgroundColor = .gray
@@ -209,7 +129,6 @@ class ViewController: UIViewController {
     }
     
     @objc func player1Released() {
-        //print("player 1 released")
         player1Touch = false
         
         button.backgroundColor = .white
@@ -220,7 +139,6 @@ class ViewController: UIViewController {
     }
     
     @objc func player2Touched() {
-        //print("player 2 touched")
         player2Touch = true
         
         p2Button.backgroundColor = .gray
@@ -231,7 +149,6 @@ class ViewController: UIViewController {
     }
     
     @objc func player2Released() {
-        //print("player 2 released")
         player2Touch = false
         
         p2Button.backgroundColor = .white
@@ -243,6 +160,74 @@ class ViewController: UIViewController {
     
     func vibrate() {
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+    }
+    
+    func setupUI() {
+        timerLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        
+        // Making Player1 button with code
+        let screen = UIScreen.main.bounds
+        let verticalOffset: CGFloat = 50
+        let width: CGFloat = 100
+        let height: CGFloat = 100
+        let xPos = screen.midX - (width / CGFloat(2))
+        var yPos = screen.maxY - (height + verticalOffset)
+        button.frame = CGRect(x: xPos, y: yPos, width: width, height: height)
+        
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.clipsToBounds = true
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(player1Touched), for: .touchDown)
+        button.addTarget(self, action: #selector(player1Released), for: .touchUpInside)
+        button.addTarget(self, action: #selector(player1Released), for: .touchDragExit)
+        view.addSubview(button)
+        
+        // Label for Player1 button
+        let labelHeight: CGFloat = 56
+        yPos -= labelHeight
+        let p1Label = UILabel(frame: CGRect(x: xPos, y: yPos, width: width, height: labelHeight))
+        p1Label.text = "Player 1"
+        p1Label.textColor = .white
+        p1Label.textAlignment = .center
+        view.addSubview(p1Label)
+        
+        // Making Player2 button with code
+        yPos = screen.minY + (verticalOffset)
+        p2Button.frame = CGRect(x: xPos, y: yPos, width: width, height: height)
+        
+        p2Button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        p2Button.clipsToBounds = true
+        p2Button.backgroundColor = .white
+        p2Button.addTarget(self, action: #selector(player2Touched), for: .touchDown)
+        p2Button.addTarget(self, action: #selector(player2Released), for: .touchUpInside)
+        p2Button.addTarget(self, action: #selector(player2Released), for: .touchDragExit)
+        view.addSubview(p2Button)
+        
+        // Label for Player2 button
+        yPos = p2Button.bounds.maxY + labelHeight
+        let p2Label = UILabel(frame: CGRect(x: xPos, y: yPos, width: width, height: labelHeight))
+        p2Label.text = "Player 2"
+        p2Label.textColor = .white
+        p2Label.textAlignment = .center
+        p2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        view.addSubview(p2Label)
+        
+        // Previous best label
+        prevBest.frame = CGRect(x: screen.midX + 50, y: screen.midY, width: 100, height: 25)
+        prevBest.text = getHighScore()
+        prevBest.textColor = .white
+        prevBest.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        view.addSubview(prevBest)
+        
+        // Setup Music for playback
+        let path = Bundle.main.path(forResource: "SuperHex.mp3", ofType:nil)!
+        let musicURL = URL(fileURLWithPath: path)
+        
+        do {
+            music = try AVAudioPlayer(contentsOf: musicURL)
+        } catch {
+            print("Error occured playing sound")
+        }
     }
     
     /*
