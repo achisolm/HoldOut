@@ -15,7 +15,6 @@
 		850AA3C2224FFF6E005AF7C3 /* HoldOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850AA3C1224FFF6E005AF7C3 /* HoldOutTests.swift */; };
 		850AA3CD224FFF6E005AF7C3 /* HoldOutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850AA3CC224FFF6E005AF7C3 /* HoldOutUITests.swift */; };
 		850AA3DB225034B9005AF7C3 /* LoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850AA3DA225034B9005AF7C3 /* LoseViewController.swift */; };
-		850AA3DD22503E0C005AF7C3 /* SuperHex.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 850AA3DC22503E0C005AF7C3 /* SuperHex.mp3 */; };
 		8546930022F08D4F001E6A70 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 854692FF22F08D4F001E6A70 /* Storyboard.storyboard */; };
 		8582DBEE22F09AB0000416F7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8582DBED22F09AB0000416F7 /* MainMenuViewController.swift */; };
 		8582DBF022F0D826000416F7 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8582DBEF22F0D826000416F7 /* InstructionsViewController.swift */; };
@@ -55,7 +54,6 @@
 		850AA3CC224FFF6E005AF7C3 /* HoldOutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldOutUITests.swift; sourceTree = "<group>"; };
 		850AA3CE224FFF6E005AF7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		850AA3DA225034B9005AF7C3 /* LoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseViewController.swift; sourceTree = "<group>"; };
-		850AA3DC22503E0C005AF7C3 /* SuperHex.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SuperHex.mp3; sourceTree = "<group>"; };
 		854692FF22F08D4F001E6A70 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		8582DBED22F09AB0000416F7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		8582DBEF22F0D826000416F7 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 		850AA3AB224FFF6C005AF7C3 /* HoldOut */ = {
 			isa = PBXGroup;
 			children = (
-				850AA3DC22503E0C005AF7C3 /* SuperHex.mp3 */,
 				850AA3AC224FFF6C005AF7C3 /* AppDelegate.swift */,
 				850AA3B0224FFF6C005AF7C3 /* Main.storyboard */,
 				854692FF22F08D4F001E6A70 /* Storyboard.storyboard */,
@@ -260,7 +257,6 @@
 			files = (
 				850AA3B7224FFF6E005AF7C3 /* LaunchScreen.storyboard in Resources */,
 				850AA3B4224FFF6E005AF7C3 /* Assets.xcassets in Resources */,
-				850AA3DD22503E0C005AF7C3 /* SuperHex.mp3 in Resources */,
 				850AA3B2224FFF6C005AF7C3 /* Main.storyboard in Resources */,
 				8546930022F08D4F001E6A70 /* Storyboard.storyboard in Resources */,
 			);

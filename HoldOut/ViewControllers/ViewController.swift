@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     let p2Button = UIButton(type: .custom)
     
     // Main music theme
-    var music: AVAudioPlayer?
+    //var music: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +69,8 @@ class ViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         startTime = Date.timeIntervalSinceReferenceDate
         
-        // Play music and vibrate to let players know the game has started
-        music?.play()
+        // Play vibrate to let players know the game has started
+        //music?.play()
         vibrate()
     }
     
@@ -84,9 +84,11 @@ class ViewController: UIViewController {
             prevBest.text = currentScore
         }
         
+        /*
         // Reset music
         music?.stop()
         music?.currentTime = 0
+        */
         
         // Go to lose screen
         performSegue(withIdentifier: "loseSeg", sender: self)
@@ -230,15 +232,18 @@ class ViewController: UIViewController {
         prevBest.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         view.addSubview(prevBest)
         
+        /*
         // Setup Music for playback
         let path = Bundle.main.path(forResource: "SuperHex.mp3", ofType:nil)!
         let musicURL = URL(fileURLWithPath: path)
+        
         
         do {
             music = try AVAudioPlayer(contentsOf: musicURL)
         } catch {
             print("Error occured playing sound")
         }
+        */
     }
     
     /*
