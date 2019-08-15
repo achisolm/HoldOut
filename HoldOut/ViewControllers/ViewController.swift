@@ -60,6 +60,11 @@ class ViewController: UIViewController {
         gameStarted = true
         startTime = Date.timeIntervalSinceReferenceDate
         
+        // Change UI to be more dramatic
+        self.view.backgroundColor = .black
+        timerLabel.textColor = .white
+        prevBest.textColor = .white
+        
         // Start the timer
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         startTime = Date.timeIntervalSinceReferenceDate
@@ -90,8 +95,11 @@ class ViewController: UIViewController {
         gameStarted = false
         player1Touch = false
         player2Touch = false
-        button.backgroundColor = .white
-        p2Button.backgroundColor = .white
+        button.backgroundColor = .black
+        p2Button.backgroundColor = .black
+        self.view.backgroundColor = .white
+        timerLabel.textColor = .black
+        prevBest.textColor = .black
         
         //Reset timer
         timer.invalidate()
@@ -164,6 +172,9 @@ class ViewController: UIViewController {
     
     func setupUI() {
         timerLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        timerLabel.textColor = .black
+        
+        prevBest.textColor = .black
         
         // Making Player1 button with code
         let screen = UIScreen.main.bounds
@@ -176,7 +187,7 @@ class ViewController: UIViewController {
         
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
         button.clipsToBounds = true
-        button.backgroundColor = .white
+        button.backgroundColor = .black
         button.addTarget(self, action: #selector(player1Touched), for: .touchDown)
         button.addTarget(self, action: #selector(player1Released), for: .touchUpInside)
         button.addTarget(self, action: #selector(player1Released), for: .touchDragExit)
@@ -187,7 +198,7 @@ class ViewController: UIViewController {
         yPos -= labelHeight
         let p1Label = UILabel(frame: CGRect(x: xPos, y: yPos, width: width, height: labelHeight))
         p1Label.text = "Player 1"
-        p1Label.textColor = .white
+        p1Label.textColor = .black
         p1Label.textAlignment = .center
         view.addSubview(p1Label)
         
@@ -197,7 +208,7 @@ class ViewController: UIViewController {
         
         p2Button.layer.cornerRadius = 0.5 * button.bounds.size.width
         p2Button.clipsToBounds = true
-        p2Button.backgroundColor = .white
+        p2Button.backgroundColor = .black
         p2Button.addTarget(self, action: #selector(player2Touched), for: .touchDown)
         p2Button.addTarget(self, action: #selector(player2Released), for: .touchUpInside)
         p2Button.addTarget(self, action: #selector(player2Released), for: .touchDragExit)
@@ -207,7 +218,7 @@ class ViewController: UIViewController {
         yPos = p2Button.bounds.maxY + labelHeight
         let p2Label = UILabel(frame: CGRect(x: xPos, y: yPos, width: width, height: labelHeight))
         p2Label.text = "Player 2"
-        p2Label.textColor = .white
+        p2Label.textColor = .black
         p2Label.textAlignment = .center
         p2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         view.addSubview(p2Label)
@@ -215,7 +226,7 @@ class ViewController: UIViewController {
         // Previous best label
         prevBest.frame = CGRect(x: screen.midX + 50, y: screen.midY, width: 100, height: 25)
         prevBest.text = getHighScore()
-        prevBest.textColor = .white
+        prevBest.textColor = .black
         prevBest.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         view.addSubview(prevBest)
         
