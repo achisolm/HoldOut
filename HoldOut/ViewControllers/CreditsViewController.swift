@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class CreditsViewController: UIViewController {
 
@@ -16,10 +17,30 @@ class CreditsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Actions
+    
     @IBAction func backButtonPressed(_ sender: UIButton) {
         dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func websiteButtonPressed(_ sender: UIButton) {
+        // Need to find out how to do this...
+        showSafariVC(url: "https://adamchisolm.com")
+    }
+    
+    @IBAction func gitHubButtonPressed(_ sender: UIButton) {
+        showSafariVC(url: "https://github.com/achisolm/HoldOut")
+    }
+    
+    func showSafariVC(url: String) {
+        guard let myURL = URL(string: url) else {
+            // Show error message
+            return
+        }
+        
+        let safariVC = SFSafariViewController(url: myURL)
+        present(safariVC, animated: true)
+    }
     /*
     // MARK: - Navigation
 

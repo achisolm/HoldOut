@@ -176,6 +176,17 @@
                                     <action selector="backButtonPushed:" destination="Q6K-Hl-t5G" eventType="touchUpInside" id="TEf-Aq-yUi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkU-eN-3FP">
+                                <rect key="frame" x="22.5" y="165" width="330" height="176"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="176" id="ikk-U6-uSJ"/>
+                                    <constraint firstAttribute="width" constant="330" id="j8I-5L-7dS"/>
+                                </constraints>
+                                <string key="text">Touch and hold a your thumb to a circle, then have your friend touch and hold their thumb to the other circle. Once you both have your thumbs it place, hold on for as long as you can!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -183,13 +194,15 @@
                             <constraint firstItem="DnW-sP-jok" firstAttribute="centerX" secondItem="iRO-NY-9M0" secondAttribute="centerX" id="TWD-NX-5VH"/>
                             <constraint firstItem="DnW-sP-jok" firstAttribute="top" secondItem="7SQ-5i-fFn" secondAttribute="top" constant="70" id="jev-bu-lUu"/>
                             <constraint firstItem="7SQ-5i-fFn" firstAttribute="bottom" secondItem="CvC-D1-l7B" secondAttribute="bottom" constant="100" id="rZp-em-Esr"/>
+                            <constraint firstItem="GkU-eN-3FP" firstAttribute="top" secondItem="DnW-sP-jok" secondAttribute="bottom" constant="35" id="tk9-oI-o1X"/>
+                            <constraint firstItem="GkU-eN-3FP" firstAttribute="centerX" secondItem="iRO-NY-9M0" secondAttribute="centerX" id="yBV-ey-7XH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7SQ-5i-fFn"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="en7-jL-ubz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="815"/>
+            <point key="canvasLocation" x="136.80000000000001" y="814.54272863568224"/>
         </scene>
         <!--Credits View Controller-->
         <scene sceneID="q6f-mb-275">
@@ -222,20 +235,49 @@
                                     <action selector="backButtonPressed:" destination="Pr1-i5-eZj" eventType="touchUpInside" id="NIQ-DH-yF2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HoldOut was designed and developed by Adam Chisolm" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIy-xu-zpk">
+                                <rect key="frame" x="22.5" y="179" width="330" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="330" id="tvv-Jh-HeR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBm-4L-OSi">
+                                <rect key="frame" x="125" y="250" width="125" height="30"/>
+                                <state key="normal" title="adamchisolm.com"/>
+                                <connections>
+                                    <action selector="websiteButtonPressed:" destination="Pr1-i5-eZj" eventType="touchUpInside" id="mWo-xQ-Us0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NF1-m3-XhA">
+                                <rect key="frame" x="163" y="310" width="49" height="30"/>
+                                <state key="normal" title="GitHub"/>
+                                <connections>
+                                    <action selector="gitHubButtonPressed:" destination="Pr1-i5-eZj" eventType="touchUpInside" id="rkK-lt-hLM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="NF1-m3-XhA" firstAttribute="top" secondItem="RBm-4L-OSi" secondAttribute="bottom" constant="30" id="C8W-7N-Ew7"/>
                             <constraint firstItem="eTZ-fN-eib" firstAttribute="top" secondItem="jb9-fd-NoK" secondAttribute="top" constant="70" id="Egz-Ge-pSQ"/>
                             <constraint firstItem="eTZ-fN-eib" firstAttribute="centerX" secondItem="6OG-p0-KBj" secondAttribute="centerX" id="FY5-gN-gAO"/>
+                            <constraint firstItem="RBm-4L-OSi" firstAttribute="centerX" secondItem="6OG-p0-KBj" secondAttribute="centerX" id="G52-Kd-fmW"/>
+                            <constraint firstItem="NF1-m3-XhA" firstAttribute="centerX" secondItem="6OG-p0-KBj" secondAttribute="centerX" id="j0x-af-9fe"/>
                             <constraint firstItem="jb9-fd-NoK" firstAttribute="bottom" secondItem="z5m-Wc-Vjw" secondAttribute="bottom" constant="100" id="wUr-2u-WQV"/>
+                            <constraint firstItem="RIy-xu-zpk" firstAttribute="centerX" secondItem="6OG-p0-KBj" secondAttribute="centerX" id="xWR-14-4c2"/>
+                            <constraint firstItem="RBm-4L-OSi" firstAttribute="top" secondItem="RIy-xu-zpk" secondAttribute="bottom" constant="30" id="yCC-lh-UyI"/>
                             <constraint firstItem="z5m-Wc-Vjw" firstAttribute="centerX" secondItem="6OG-p0-KBj" secondAttribute="centerX" id="ync-Tk-1DN"/>
+                            <constraint firstItem="RIy-xu-zpk" firstAttribute="top" secondItem="eTZ-fN-eib" secondAttribute="bottom" constant="50" id="zkK-ia-mWy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jb9-fd-NoK"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9T0-5L-dXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="1551"/>
+            <point key="canvasLocation" x="136.80000000000001" y="1549.4752623688157"/>
         </scene>
         <!--Lose View Controller-->
         <scene sceneID="Fvp-LT-opF">
